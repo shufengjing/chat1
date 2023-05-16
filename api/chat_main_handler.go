@@ -172,7 +172,7 @@ func genAnswer(h *ChatHandler, w http.ResponseWriter, chatSessionUuid string, ch
 	}
 
 	// calc total tokens
-	totalTokens := lo.SumBy(msgs, func(msg Message) int32 {
+	/*totalTokens := lo.SumBy(msgs, func(msg Message) int32 {
 		return msg.TokenCount()
 	})
 
@@ -185,7 +185,7 @@ func genAnswer(h *ChatHandler, w http.ResponseWriter, chatSessionUuid string, ch
 			})
 		return
 	}
-
+*/
 	chatStreamFn := h.chooseChatStreamFn(chatSession, msgs)
 
 	answerText, answerID, shouldReturn := chatStreamFn(w, chatSession, msgs, chatUuid, false)
@@ -218,7 +218,7 @@ func regenerateAnswer(h *ChatHandler, w http.ResponseWriter, chatSessionUuid str
 	}
 
 	// calc total tokens
-	totalTokens := lo.SumBy(msgs, func(msg Message) int32 {
+	/*totalTokens := lo.SumBy(msgs, func(msg Message) int32 {
 		return msg.TokenCount()
 	})
 
@@ -230,7 +230,7 @@ func regenerateAnswer(h *ChatHandler, w http.ResponseWriter, chatSessionUuid str
 			})
 		return
 	}
-
+*/
 	// Determine whether the chat is a test or not
 	chatStreamFn := h.chooseChatStreamFn(chatSession, msgs)
 
